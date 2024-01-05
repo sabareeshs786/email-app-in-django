@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <title>Email Application</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+{% if messages %}
+        {% for message in messages %}
+         {% if message.tags %}  
+          <script>alert("{{ message }}")
+          </script> 
+         {% endif %}
+        {% endfor %}
+{% endif %}
+<div class="login-form">
+  <form action="" method="post">
+    {% csrf_token %}
+    <h1>Email Login</h1>
+    <div class="content">
+      <div class="input-field">
+        <input type="email" placeholder="Email ID" autocomplete="nope" name="emailid" required>
+      </div>
+      <div class="input-field">
+        <input type="password" placeholder="Password" autocomplete="new-password" name="password" required>
+      </div>
+      <a href="/forgot" class="link">Forgot Password?</a>
+    </div>
+    <div class="action">
+	  <a href="/signup" class="link">Register</a>
+	  <button type="submit">Sign in</button>
+    </div>
+  </form>
+</div>
+
+  <script  src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<title>Create Account</title>
+<html lang="en" dir="ltr">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style1.css' %}", media="screen">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  {% if messages %}
+        {% for message in messages %}
+         {% if message.tags %}  
+            <script>alert("{{ message }}")</script> 
+         {% endif %}
+        {% endfor %}
+  {% endif %}
+  <div class="container">
+    <div class="title">Sign Up</div>
+    <div class="content">
+
+      <form action="/signup" method="post">
+        {% csrf_token %}
+
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">First Name</span>
+            <input type="text" placeholder="Enter your first name" name="fname" required>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Last Name</span>
+            <input type="text" placeholder="Enter your last name" name="lname" required>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" placeholder="Enter the username" name="uname" required>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="number" placeholder="Enter your number" name="pno"required>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" placeholder="Enter your password" name="pword"required>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="password" placeholder="Confirm your password" name="cpword" required>
+          </div>
+
+        </div>
+        <div class="gender-details">
+          <input type="radio" name="gender" id="dot-1">
+          <input type="radio" name="gender" id="dot-2">
+          <input type="radio" name="gender" id="dot-3">
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Male</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Female</span>
+          </label>
+          
+          </div>
+        </div>
+
+        <div class="button">
+          <input type="submit" value="Register">
+          
+        </div>
+      </form>
+    </div>
+  </div>
+  <script  src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

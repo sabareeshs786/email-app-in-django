@@ -1,0 +1,26 @@
+<!DOCTYPE>
+<html>
+  <head>
+    {% load static %}
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Raleway'>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+      body{
+        background-image: url("{% static 'css/homepage_image.jpeg' %}");
+        background-repeat: no-repeat;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <div class="popup">
+          <div class="popup-content">
+            <h2 class="popup-title">Welcome to MyEmail</h2>
+            <p class="popup-body">Sign in if you are a existing user or create account  </p>
+            <a href="/signin" class="popup-button">Login</a>
+            <a href="/signup" id="btn-2" class="popup-button">Sign Up</a>
+          </div>  
+        </div>  
+    </div>
+  </body>
+</html>
